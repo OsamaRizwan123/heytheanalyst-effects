@@ -62,7 +62,8 @@ def run(video, effect, out, masks=None, sfx_volume=0.35, dur=None):
                           "-map", "0:v", "-map", "[aout]", "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-pix_fmt", "yuv420p",
                           "-c:a", "aac", "-t", str(dur), "-movflags", "+faststart", out], stdin=subprocess.PIPE)
     for i, f in enumerate(files):
-        t = i / FPS; fr = Image.open(f).convert("RGBA"); bk, fg = effect.frame(t); img = fr
+        t = i / FPS; fr = Image.open(f).convert("RGBA")
+        bk, fg = effect.frame_bg(t, fr) if hasattr(effect, "frame_bg") else effect.frame(t); img = fr
         if bk is not None:
             img = fr.copy(); img.alpha_composite(bk)
             if getattr(effect, "needs_mask", False):
