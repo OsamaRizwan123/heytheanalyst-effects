@@ -7,7 +7,7 @@ def two(y,a,b,fs):
     w1=t.get_window_extent(r).width/1080*100; t.remove()
     t=ax.text(0,0,b,fontsize=fs,family=FONT); w2=t.get_window_extent(r).width/1080*100; t.remove()
     x0=50-(w1+w2)/2; ax.text(x0,y,a,fontsize=fs,family=FONT,color=INK,va="center"); ax.text(x0+w1,y,b,fontsize=fs,family=FONT,color=RED,va="center")
-#two(112,"Make charts like a ","consultant",30)
+two(112,"Make charts like a ","consultant",30)
 # left: pie sketch
 cx,cy,r=27,84,15
 ang=np.cumsum([0,60,50,70,45,55,80])
@@ -26,4 +26,4 @@ ax.text(x0+13.2,cy-25,"but this",fontsize=20,family=FONT,color=GRN,ha="center")
 ax.annotate("",xy=(56,84),xytext=(45,84),arrowprops=dict(arrowstyle="-|>",color=INK,lw=1.8,mutation_scale=20))
 ax.text(50,40,"6 charts. 20 seconds.",fontsize=19,family=FONT,color=INK,ha="center")
 ax.text(50,24,"@heytheanalyst",fontsize=17,family=FONT,color=INK,ha="center")
-fig.savefig("not_this_but_this_cover.jpg",facecolor="white",pil_kwargs={"quality":95})
+fig.savefig("handdrawn_pie_waffle.jpg",facecolor="white",pil_kwargs={"quality":95})

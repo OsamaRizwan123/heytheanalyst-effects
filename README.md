@@ -17,6 +17,28 @@ pip install -r requirements.txt
 Optional, for offline transcription, download into `models/`:
 `sherpa-onnx-whisper-base.en/` and `silero_vad.onnx` from the sherpa-onnx releases page.
 
+## Sections
+
+Each section is a folder of interchangeable styles, with a script and a preview (made on a placeholder figure, never real footage).
+
+| Section | Styles | Folder |
+|---|---|---|
+| Captions | keyword_red, word_pop, karaoke, boxed, handwritten | [`captions/`](captions/) |
+| Hooks | hook_caption, headline_box, backdrop_word, red_stamp, typed_question | [`hooks/`](hooks/) |
+| Calls to action | end_card, comment_box, follow_button, save_prompt | [`cta/`](cta/) |
+| Covers | handdrawn_pareto, handdrawn_pie_waffle, big_text, card_over_face, drawing_plus_face | [`covers/`](covers/) |
+| Overlays | orbit | [`overlays/`](overlays/) |
+| Coming next | layouts, data visuals, explainers, motion, transitions, looks, sound, carousels | |
+
+<p>
+<img src="captions/previews/karaoke.gif" width="150"> <img src="hooks/previews/red_stamp.gif" width="150">
+<img src="cta/previews/comment_box.gif" width="150"> <img src="overlays/orbit/previews/orbit.gif" width="150">
+<img src="covers/previews/drawing_plus_face.jpg" width="150">
+</p>
+
+All effects share one engine, `reelkit/fx.py`, which stacks: your video → layer behind you → your cut-out → layer in front, then adds quiet sound effects.
+Fonts are in `fonts/` (open licences).
+
 ## The tools (`reelkit/`)
 
 | Command | What it does |
