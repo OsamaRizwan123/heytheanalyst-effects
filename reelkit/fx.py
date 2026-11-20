@@ -62,12 +62,16 @@ def run(video, effect, out, masks=None, sfx_volume=0.35, dur=None):
                           "-map", "0:v", "-map", "[aout]", "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-pix_fmt", "yuv420p",
                           "-c:a", "aac", "-t", str(dur), "-movflags", "+faststart", out], stdin=subprocess.PIPE)
     for i, f in enumerate(files):
-        t = i / FPS; fr = Image.open(f).convert("RGBA")
-        bk, fg = effect.frame_bg(t, fr) if hasattr(effect, "frame_bg") else effect.frame(t); img = fr
+        t = i / FPS; fr = Image.open(f).convert("RGBA"); m = None
+        if getattr(effect, "needs_mask", False):
+            m = Image.open(os.path.join(masks, f"m_{i:03d}.png")).convert("L") if masks else remove(fr.convert("RGB"), session=sess, only_mask=True).convert("L")
+        if hasattr(effect, "frame_mask"): bk, fg = effect.frame_mask(t, fr, m)
+        elif hasattr(effect, "frame_bg"): bk, fg = effect.frame_bg(t, fr)
+        else: bk, fg = effect.frame(t)
+        img = fr
         if bk is not None:
             img = fr.copy(); img.alpha_composite(bk)
-            if getattr(effect, "needs_mask", False):
-                m = Image.open(os.path.join(masks, f"m_{i:03d}.png")).convert("L") if masks else remove(fr.convert("RGB"), session=sess, only_mask=True).convert("L")
+            if m is not None and not getattr(effect, "mask_front_only", False):
                 person = fr.copy(); person.putalpha(m); img.alpha_composite(person)
         if fg is not None: img = img.copy(); img.alpha_composite(fg)
         p.stdin.write(img.convert("RGB").tobytes())

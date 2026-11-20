@@ -5,6 +5,7 @@
 import sys, os
 import numpy as np
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+sys.path.insert(0, os.path.dirname(__file__))
 from PIL import Image, ImageDraw, ImageFilter
 from reelkit.fx import font, blank, W, H, RED, WHITE
 from reelkit.style import ease
@@ -31,4 +32,5 @@ class Spotlight:
             glow = txt.filter(ImageFilter.GaussianBlur(26)); o.alpha_composite(glow); o.alpha_composite(glow); o.alpha_composite(txt)
         return o, None
 
-STYLES = {"spotlight": Spotlight}
+from looks_more import CodeBody, LetterDive, LayerExplode
+STYLES = {"spotlight": Spotlight, "code_body": CodeBody, "letter_dive": LetterDive, "layer_explode": LayerExplode}

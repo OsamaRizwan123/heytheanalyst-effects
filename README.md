@@ -27,11 +27,11 @@ Each section is a folder of interchangeable styles, with a script and a preview 
 | Hooks | hook_caption, headline_box, backdrop_word, red_stamp, typed_question | [`hooks/`](hooks/) |
 | Calls to action | end_card, comment_box, follow_button, save_prompt | [`cta/`](cta/) |
 | Covers | handdrawn_pareto, handdrawn_pie_waffle, big_text, card_over_face, drawing_plus_face | [`covers/`](covers/) |
-| Overlays | orbit | [`overlays/`](overlays/) |
+| Overlays | orbit, head_stack, post_wall, live_cursor | [`overlays/`](overlays/) |
 | Data visuals | number_chart | [`data-visuals/`](data-visuals/) |
 | Explainers | checklist | [`explainers/`](explainers/) |
 | Text overlays | glass_type | [`text-overlays/`](text-overlays/) |
-| Looks | spotlight | [`looks/`](looks/) |
+| Looks | spotlight, code_body, letter_dive, layer_explode | [`looks/`](looks/) |
 | Layouts | phone_mockup | [`layouts/`](layouts/) |
 | Coming next | count wall, frame break, digital zoom, headline wall, zoom-through cut, paper cut, cover story, doodle board | |
 
