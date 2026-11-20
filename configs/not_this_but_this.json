@@ -1,0 +1,19 @@
+{
+  "video": "raw.mov",
+  "output": "not_this_but_this.mp4",
+  "grade": false,
+  "sfx_volume": 0.35,
+  "layout": {"card_w": 820, "card_h": 615, "top": [130, 300], "bottom": [130, 975], "crop_top": 0.08,
+             "not_label": "NOT THIS", "but_label": "BUT THIS"},
+  "hook": {"text": "Make charts like a consultant", "highlight": ["consultant"], "until": 1.86, "y": 1450},
+  "pairs": [
+    {"before": "assets/charts/1a_before.png", "after": "assets/charts/1b_after.png", "not_at": 2.01, "but_at": 3.23},
+    {"before": "assets/charts/2a_before.png", "after": "assets/charts/2b_after.png", "not_at": 4.80, "but_at": 6.30},
+    {"before": "assets/charts/5a_before.png", "after": "assets/charts/5b_after.png", "not_at": 7.39, "but_at": 8.67},
+    {"before": "assets/charts/6a_before.png", "after": "assets/charts/6b_after.png", "not_at": 9.70, "but_at": 10.35},
+    {"before": "assets/charts/7a_before.png", "after": "assets/charts/7b_after.png", "not_at": 12.06, "but_at": 12.83},
+    {"before": "assets/charts/9a_before.png", "after": "assets/charts/9b_after.png", "not_at": 13.98, "but_at": 15.05}
+  ],
+  "end_card": {"image": "assets/pdf_cover.png", "at": 16.3, "w": 900, "h": 600, "y": 620,
+               "lines": ["Comment CHART", "for the free PDF"], "highlight": ["chart"], "text_y": 1440}
+}

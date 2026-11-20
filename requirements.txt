@@ -1,0 +1,7 @@
+numpy
+matplotlib
+pillow
+scipy
+reportlab
+opencv-python
+sherpa-onnx   # optional: offline transcription
